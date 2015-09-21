@@ -1,0 +1,9 @@
+# Project directory layout
+
+src/
+	sass/
+	index.jade
+
+dist/
+	css/
+	index.html
