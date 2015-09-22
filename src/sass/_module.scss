@@ -1,0 +1,20 @@
+//HEADER
+#header{
+
+}
+
+.menu{
+		margin: 0;
+		padding: 0;
+		li{
+			float: left;
+			display: block;
+			background: url('') no-repeat;
+		}
+}
+
+.menu__home{
+	border: 1px solid red;
+	width: 150px;
+	height: 50px;
+}

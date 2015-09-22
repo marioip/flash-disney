@@ -1,0 +1,49 @@
+
+body{
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	background-color: #fff;
+	color: #000;
+}
+
+p{
+	text-align: left;
+	font-size: 1em;
+	line-height: 1.4em;
+	letter-spacing: 0.03em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a{
+	color: $orange;
+	letter-spacing: 0.02em;
+	&:hover{
+		color: $magenta;
+	}
+}
+
+h1, h3{
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul{
+	list-style: none;
+}
+
+video{
+	width: 100%;
+	height: auto;
+}
+
+img {
+	max-width: 100%;
+ 	height: auto;
+}
+
+figure{
+	margin: 0;
+}
