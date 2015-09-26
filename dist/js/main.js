@@ -4,28 +4,43 @@ var stage = {
 
 	scene: {
 
-		init: function(ctx){
+		addCharacter: function(){
+
+		},
+
+		loadBg: function(ctx, index){
+
+			var scenesBg = [
+				{posX:-5, posY:-437},
+				{posX:-5, posY:-1071},
+				{posX:-5, posY:-1388},
+				{posX:-5, posY:-754}
+			];
+
 			var bgImage = new Image();
 
 			bgImage.onload = function(){
-				ctx.drawImage(bgImage, 0, 0)
+				ctx.drawImage(bgImage, scenesBg[index].posX, scenesBg[index].posY);
 			}
 
-			bgImage.src = 'http://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+			bgImage.src = 'images/sprite.png';
 
 			$( ".menu-scenes>li" ).draggable({ 
-				revert: true
+				revert: true,
+				helper: "clone" 
 			});
 
 			$("#ui-canvas").droppable({
-	    		drop: function() {
-					console.log("dentro canvas");
+	    		drop: function(event, ui) {
+	    			var index = ui.draggable.index();
+	    			console.log(index);
+	    			ctx.drawImage(bgImage, scenesBg[index].posX, scenesBg[index].posY);
 	  			}
 			});
 		},
 
-		loadBg: function(){
-			
+		init: function(ctx){
+			this.loadBg(ctx, 0);
 		}
 
 	},
