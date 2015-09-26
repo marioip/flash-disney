@@ -8,8 +8,8 @@ body{
 
 p{
 	text-align: left;
-	font-size: 1em;
-	line-height: 1.4em;
+	font-size: 0.8em;
+	line-height: 1.5em;
 	letter-spacing: 0.03em;
 }
 
@@ -20,9 +20,16 @@ p{
 a{
 	color: $orange;
 	letter-spacing: 0.02em;
+	text-decoration: none;
+	font-weight: 600;
 	&:hover{
 		color: $magenta;
 	}
+}
+
+strong{
+	color: $orange;
+	font-weight: 600;
 }
 
 h1, h3{

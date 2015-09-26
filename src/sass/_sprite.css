@@ -1,0 +1,45 @@
+$btn-official_hover: -0px -0px 180px 26px;
+$btn-official: -0px -26px 180px 26px;
+$btn-home_hover: -0px -52px 78px 26px;
+$btn-gallery: -0px -78px 120px 26px;
+$btn-gallery_hover: -0px -104px 120px 26px;
+$btn-home: -0px -130px 78px 26px;
+$stage-scenes-blue-btn: -0px -156px 135px 69px;
+$stage-scenes-green-btn: -0px -225px 135px 69px;
+$stage-scenes-orange-btn: -0px -294px 135px 69px;
+$stage-scenes-purple-btn: -0px -363px 135px 69px;
+$stage-scenes-purple: -0px -432px 668px 317px;
+$stage-scenes-blue: -0px -749px 668px 317px;
+$stage-scenes-orange: -0px -1066px 668px 317px;
+$stage-scenes-green: -0px -1383px 668px 317px;
+$canvas: -0px -1700px 688px 336px;
+$canvasbg: -0px -2036px 948px 838px;
+$bg-home: -0px -2874px 948px 1683px;
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+@function sprite-width($sprite) {
+  @return nth($sprite, 3);
+}
+@function sprite-height($sprite) {
+  @return nth($sprite, 4);
+}
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 1);
+  $sprite-offset-y: nth($sprite, 2);
+  background-position: $sprite-offset-x $sprite-offset-y;
+}
+@mixin sprite($sprite, $display: block) {
+  @include sprite-position($sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: $display;
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+.icon {
+  background-image: url("../images/sprite.png");
+}
