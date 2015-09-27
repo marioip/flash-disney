@@ -45,17 +45,21 @@ html(lang='en')
 				div#stage-top.col-12
 					div#scenes.col-2
 						ul.menu-scenes
-							li.menu-scenes__purple &nbsp;
-							li.menu-scenes__orange &nbsp;
-							li.menu-scenes__green &nbsp;
-							li.menu-scenes__blue &nbsp;
+							li.menu-scenes__purple(data-bg="purple") &nbsp;
+							li.menu-scenes__orange(data-bg="orange") &nbsp;
+							li.menu-scenes__green(data-bg="green") &nbsp;
+							li.menu-scenes__blue(data-bg="blue") &nbsp;
 
 					div#canvas.col-10
 						<canvas id="ui-canvas" width="660px" height="305px"></canvas>
 
 				div#stage-bottom.col-12
 					div#characters.col-6
-						p hola
+						ul.menu-characters
+							li.menu-characters__sully(data-character="Sully") &nbsp;
+							li.menu-characters__buzz(data-character="Buzz") &nbsp;
+							li.menu-characters__captainJack(data-character="CaptainJack") &nbsp;
+
 					div#add-text.col-6
 						p hola
 

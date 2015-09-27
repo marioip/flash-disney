@@ -4,51 +4,84 @@ var stage = {
 
 	scene: {
 
-		addCharacter: function(){
+		setCharacter: function(ctx, character){
+
+			
 
 		},
 
-		loadBg: function(ctx, index){
+		setBg: function(ctx, bg){
 
-			var scenesBg = [
-				{posX:-5, posY:-437},
-				{posX:-5, posY:-1071},
-				{posX:-5, posY:-1388},
-				{posX:-5, posY:-754}
-			];
+			this.render(ctx, bg, characters);
 
+		},
+
+		render: function(ctx, bg, characters){
 			var bgImage = new Image();
+			var characterImage = new Image();
+
+			// scene
+			bgImage.src = 'images/bgs/'+bg+'.jpg';
+
+			//characters
+			characterImage.src = 'images/characters/btn/Buzz.png';
 
 			bgImage.onload = function(){
-				ctx.drawImage(bgImage, scenesBg[index].posX, scenesBg[index].posY);
+				ctx.drawImage(bgImage, 0, 0);
 			}
 
-			bgImage.src = 'images/sprite.png';
+			characterImage.onload = function(){
+				ctx.drawImage(characterImage, 0, 0);
+			}
+
+			ctx.addEventListener('mousedown', this.mouseDown, false);
+		},
+
+		mouseDown: function(e){
+			console.log(e);
+		},
+
+		init: function(ctx){
+
+			var _this = this;
+
+			// first time
+			var bg = "purple";
+			var characters = [];
+			this.render(ctx, bg, characters);
+
+			$( ".menu-characters>li" ).draggable({ 
+				revert: true
+			});
 
 			$( ".menu-scenes>li" ).draggable({ 
-				revert: true,
-				helper: "clone" 
+				revert: true
 			});
 
 			$("#ui-canvas").droppable({
 	    		drop: function(event, ui) {
-	    			var index = ui.draggable.index();
-	    			console.log(index);
-	    			ctx.drawImage(bgImage, scenesBg[index].posX, scenesBg[index].posY);
+
+	    			var bg = ui.draggable.data('bg');
+	    			var character = ui.draggable.data('character');
+
+	    			if(ui.draggable.data('character')!=undefined){
+	    				_this.setCharacter(ctx, ui.draggable.data('character'));
+	    			}else{
+	    				_this.setBg(ctx, ui.draggable.data('bg'));
+	    			}
+
 	  			}
 			});
-		},
 
-		init: function(ctx){
-			this.loadBg(ctx, 0);
 		}
 
 	},
 
 	init: function(){
-		var context = this.canvas.getContext('2d');
 
+		var context = this.canvas.getContext('2d');
 		this.scene.init(context);
+
 	}
 
 };

@@ -97,7 +97,6 @@
 }
 
 .menu-scenes{
-	border: 1px solid green;
 	padding: 0;
 	a{
 		background-color: #fff;
@@ -127,6 +126,34 @@
 .menu-scenes__blue{
 	background-image: url("../images/sprite.png");
 	@include sprite($stage-scenes-blue-btn);
+}
+
+.menu-characters{
+	padding: 0 0 0 120px;
+	li{
+		float: left;
+	}
+	a{
+		opacity: 0.9;
+		&:hover{
+			opacity: 1;
+		}
+	}
+}
+
+.menu-characters__sully{
+	background-image: url("../images/sprite.png");
+	@include sprite($characters-btn-Sully);
+}
+
+.menu-characters__buzz{
+	background-image: url("../images/sprite.png");
+	@include sprite($characters-btn-Buzz);
+}
+
+.menu-characters__captainJack{
+	background-image: url("../images/sprite.png");
+	@include sprite($characters-btn-CaptainJack);
 }
 
 // CANVAS

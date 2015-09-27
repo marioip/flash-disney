@@ -480,7 +480,7 @@ figure {
   width: 100%;
   text-align: center;
   background-image: url("../images/sprite.png");
-  background-position: 0px -2874px;
+  background-position: 0px -3138px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -497,14 +497,14 @@ figure {
 
 .menu__home a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -130px;
+  background-position: 0px -78px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 78px;
   height: 26px; }
   .menu__home a:hover {
-    background-position: 0px -52px;
+    background-position: 0px -104px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
@@ -513,14 +513,14 @@ figure {
 
 .menu__gallery a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -78px;
+  background-position: 0px -26px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 120px;
   height: 26px; }
   .menu__gallery a:hover {
-    background-position: 0px -104px;
+    background-position: 0px -52px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
@@ -529,14 +529,14 @@ figure {
 
 .menu__official a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -26px;
+  background-position: 0px 0px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 180px;
   height: 26px; }
   .menu__official a:hover {
-    background-position: 0px 0px;
+    background-position: 0px -130px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
@@ -562,7 +562,7 @@ figure {
 #stage {
   margin-top: 0px;
   background-image: url("../images/sprite.png");
-  background-position: 0px -2036px;
+  background-position: 0px -2300px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -592,7 +592,6 @@ figure {
     margin: 5px; }
 
 .menu-scenes {
-  border: 1px solid green;
   padding: 0; }
   .menu-scenes a {
     background-color: #fff;
@@ -605,7 +604,7 @@ figure {
 
 .menu-scenes__purple {
   background-image: url("../images/sprite.png");
-  background-position: 0px -363px;
+  background-position: 0px -156px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -614,7 +613,7 @@ figure {
 
 .menu-scenes__orange {
   background-image: url("../images/sprite.png");
-  background-position: 0px -294px;
+  background-position: 0px -225px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -623,7 +622,7 @@ figure {
 
 .menu-scenes__green {
   background-image: url("../images/sprite.png");
-  background-position: 0px -225px;
+  background-position: 0px -294px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -632,17 +631,53 @@ figure {
 
 .menu-scenes__blue {
   background-image: url("../images/sprite.png");
-  background-position: 0px -156px;
+  background-position: 0px -363px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 135px;
   height: 69px; }
 
+.menu-characters {
+  padding: 0 0 0 120px; }
+  .menu-characters li {
+    float: left; }
+  .menu-characters a {
+    opacity: 0.9; }
+    .menu-characters a:hover {
+      opacity: 1; }
+
+.menu-characters__sully {
+  background-image: url("../images/sprite.png");
+  background-position: 0px -432px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  width: 101px;
+  height: 88px; }
+
+.menu-characters__buzz {
+  background-image: url("../images/sprite.png");
+  background-position: 0px -520px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  width: 64px;
+  height: 88px; }
+
+.menu-characters__captainJack {
+  background-image: url("../images/sprite.png");
+  background-position: 0px -608px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  width: 52px;
+  height: 88px; }
+
 #canvas {
   border: 1px solid blue;
   background-image: url("../images/sprite.png");
-  background-position: 0px -1700px;
+  background-position: 0px -1964px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -654,7 +689,7 @@ figure {
 
 .bg-scene__purple {
   background-image: url("../images/sprite.png");
-  background-position: 0px -432px;
+  background-position: 0px -1013px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -663,7 +698,7 @@ figure {
 
 .bg-scene__orange {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1066px;
+  background-position: 0px -1647px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -672,7 +707,7 @@ figure {
 
 .bg-scene__green {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1383px;
+  background-position: 0px -1330px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -681,7 +716,7 @@ figure {
 
 .bg-scene__blue {
   background-image: url("../images/sprite.png");
-  background-position: 0px -749px;
+  background-position: 0px -696px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
