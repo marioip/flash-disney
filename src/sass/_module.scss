@@ -83,13 +83,12 @@
 }
 
 #stage-top{
-	border: 1px solid green;
-	margin-top: 100px;
+	padding: 0;
+	margin: 120px 0 0 25px;
 }
 
 #scenes{
-	border: 1px solid red;
-	padding: 0;
+	padding: 100px 0 0 5px;
 	li{
 		display: block;
 		margin: 5px;
@@ -128,8 +127,14 @@
 	@include sprite($stage-scenes-blue-btn);
 }
 
+#stage-bottom{;
+	padding: 0;
+	margin-bottom: 95px;
+}
+
 .menu-characters{
-	padding: 0 0 0 120px;
+	margin: 0px;
+	padding: 0 0 0 150px;
 	li{
 		float: left;
 	}
@@ -159,7 +164,7 @@
 // CANVAS
 
 #canvas{
-	border: 1px solid blue;
+	margin-left: 20px;
 	background-image: url("../images/sprite.png");
 	@include sprite($canvas);
 }

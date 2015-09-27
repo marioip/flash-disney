@@ -12,10 +12,9 @@ html(lang='en')
 
 		link(rel='stylesheet', href='css/main.css')
 
-		script(type="text/javascript", src="js/jquery.min.js")
-		script(type="text/javascript", src="js/jquery-ui-1.11.4/jquery-ui.min.js")
+		script(type="text/javascript", src="js/js-libraries.js")
 
-	body
+	body(onload="app.init();")
 
 		div#allPage.container
 
@@ -45,10 +44,9 @@ html(lang='en')
 				div#stage-top.col-12
 					div#scenes.col-2
 						ul.menu-scenes
-							li.menu-scenes__purple(data-bg="purple") &nbsp;
-							li.menu-scenes__orange(data-bg="orange") &nbsp;
-							li.menu-scenes__green(data-bg="green") &nbsp;
-							li.menu-scenes__blue(data-bg="blue") &nbsp;
+							li.menu-scenes__purple(data-scene="purple") &nbsp;
+							li.menu-scenes__orange(data-scene="orange") &nbsp;
+							li.menu-scenes__green(data-scene="green") &nbsp;
 
 					div#canvas.col-10
 						<canvas id="ui-canvas" width="660px" height="305px"></canvas>
@@ -71,4 +69,3 @@ html(lang='en')
 						a(href='' alt='Preview' title='Preview') PREVIEW
 
 		script(type="text/javascript", src="js/main.js")
-		script(type="text/javascript") stage.init();

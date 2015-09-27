@@ -581,12 +581,11 @@ figure {
         color: #f36b2b; }
 
 #stage-top {
-  border: 1px solid green;
-  margin-top: 100px; }
+  padding: 0;
+  margin: 120px 0 0 25px; }
 
 #scenes {
-  border: 1px solid red;
-  padding: 0; }
+  padding: 100px 0 0 5px; }
   #scenes li {
     display: block;
     margin: 5px; }
@@ -638,8 +637,13 @@ figure {
   width: 135px;
   height: 69px; }
 
+#stage-bottom {
+  padding: 0;
+  margin-bottom: 95px; }
+
 .menu-characters {
-  padding: 0 0 0 120px; }
+  margin: 0px;
+  padding: 0 0 0 150px; }
   .menu-characters li {
     float: left; }
   .menu-characters a {
@@ -675,7 +679,7 @@ figure {
   height: 88px; }
 
 #canvas {
-  border: 1px solid blue;
+  margin-left: 20px;
   background-image: url("../images/sprite.png");
   background-position: 0px -1964px;
   background-repeat: no-repeat;
