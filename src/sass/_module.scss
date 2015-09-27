@@ -196,3 +196,28 @@
 	background-image: url("../images/sprite.png");
 	@include sprite($stage-scenes-blue);
 }
+
+// TEXT INPUT
+
+#text-input{
+	text-align: left;
+	padding: 27px 0 0 55px; 
+	textarea{
+		resize: none;
+		font-size: 0.8em;
+		border: none;
+		width: 330px;
+		height: 70px;
+		background-color: transparent;
+	}
+}
+
+.add-text{
+	float: right;
+	margin: -25px 70px 0 0; 
+	background-image: url("../images/sprite.png");
+	@include sprite($btn-addText);
+	&:hover{
+		@include sprite($btn-addText_hover);
+	}
+}

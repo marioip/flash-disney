@@ -480,7 +480,7 @@ figure {
   width: 100%;
   text-align: center;
   background-image: url("../images/sprite.png");
-  background-position: 0px -3138px;
+  background-position: 0px -3216px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -504,7 +504,7 @@ figure {
   width: 78px;
   height: 26px; }
   .menu__home a:hover {
-    background-position: 0px -104px;
+    background-position: 0px 0px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
@@ -529,7 +529,7 @@ figure {
 
 .menu__official a {
   background-image: url("../images/sprite.png");
-  background-position: 0px 0px;
+  background-position: 0px -104px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -562,7 +562,7 @@ figure {
 #stage {
   margin-top: 0px;
   background-image: url("../images/sprite.png");
-  background-position: 0px -2300px;
+  background-position: 0px -2378px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -603,7 +603,7 @@ figure {
 
 .menu-scenes__purple {
   background-image: url("../images/sprite.png");
-  background-position: 0px -156px;
+  background-position: 0px -303px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -612,7 +612,7 @@ figure {
 
 .menu-scenes__orange {
   background-image: url("../images/sprite.png");
-  background-position: 0px -225px;
+  background-position: 0px -234px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -621,7 +621,7 @@ figure {
 
 .menu-scenes__green {
   background-image: url("../images/sprite.png");
-  background-position: 0px -294px;
+  background-position: 0px -372px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -630,7 +630,7 @@ figure {
 
 .menu-scenes__blue {
   background-image: url("../images/sprite.png");
-  background-position: 0px -363px;
+  background-position: 0px -441px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -653,7 +653,7 @@ figure {
 
 .menu-characters__sully {
   background-image: url("../images/sprite.png");
-  background-position: 0px -432px;
+  background-position: 0px -510px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -662,7 +662,7 @@ figure {
 
 .menu-characters__buzz {
   background-image: url("../images/sprite.png");
-  background-position: 0px -520px;
+  background-position: 0px -686px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -671,7 +671,7 @@ figure {
 
 .menu-characters__captainJack {
   background-image: url("../images/sprite.png");
-  background-position: 0px -608px;
+  background-position: 0px -598px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -681,7 +681,7 @@ figure {
 #canvas {
   margin-left: 20px;
   background-image: url("../images/sprite.png");
-  background-position: 0px -1964px;
+  background-position: 0px -2042px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -693,7 +693,7 @@ figure {
 
 .bg-scene__purple {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1013px;
+  background-position: 0px -1725px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -702,7 +702,7 @@ figure {
 
 .bg-scene__orange {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1647px;
+  background-position: 0px -1091px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -711,7 +711,7 @@ figure {
 
 .bg-scene__green {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1330px;
+  background-position: 0px -1408px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -720,9 +720,38 @@ figure {
 
 .bg-scene__blue {
   background-image: url("../images/sprite.png");
-  background-position: 0px -696px;
+  background-position: 0px -774px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 668px;
   height: 317px; }
+
+#text-input {
+  text-align: left;
+  padding: 27px 0 0 55px; }
+  #text-input textarea {
+    resize: none;
+    font-size: 0.8em;
+    border: none;
+    width: 330px;
+    height: 70px;
+    background-color: transparent; }
+
+.add-text {
+  float: right;
+  margin: -25px 70px 0 0;
+  background-image: url("../images/sprite.png");
+  background-position: 0px -156px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  width: 114px;
+  height: 39px; }
+  .add-text:hover {
+    background-position: 0px -195px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: block;
+    width: 114px;
+    height: 39px; }

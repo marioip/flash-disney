@@ -4,30 +4,48 @@ var app = {
 
 		sceneName: "purple",
 
+		canvas: new fabric.Canvas('ui-canvas'),
+
+		sceneActive: {},
 		scenePurple: {},
 		sceneOrange: {},
 		sceneGreen: {},
-		sceneActive: {},
 
+		charactersActive: [],
 		charactersPurple: [],
 		charactersOrange: [],
 		charactersGreen: [],
-		charactersActive: [],
 
-		addCharacter: function(character){
+		textActive: "",
+		textPurple: "",
+		textOrange: "",
+		textGreen: "",
+
+		addCharacter: function(character, left, top){
 
 			var _this = this;
+			var _left = left;
+			var _top = top;
 
-			_this.charactersActive.push(character);
+			// objeto character
+			var _character = {
+				name: character,
+				left: Math.abs(_left),
+				top: Math.abs(_top)-100,
+				angle: 0
+			};
 
-			fabric.Image.fromURL('images/characters/'+character+'.png', function(img) {
+			this.charactersActive.push(_character);
+
+			fabric.Image.fromURL('images/characters/'+_character.name+'.png', function(img) {
+
 				  img.scale(0.5).set({
-				    left: 0,
-				    top: 0,
-				    angle: 0,
+				    left: _character.left,
+				    top: _character.top,
+				    angle: _character.angle,
 				    selectable: true
 				  });
-				  _this.sceneActive.add(img).setActiveObject(img);
+				  _this.canvas.add(img).setActiveObject(img);
 			});
 
 		},
@@ -37,20 +55,23 @@ var app = {
 			var _this = this;
 
 			// saving old scene
-			switch(_this.sceneName) {
+			switch(this.sceneName) {
 			    case "purple":
-			    	_this.scenePurple = _this.sceneActive;
-			    	_this.charactersPurple = _this.charactersActive;
+			    	this.scenePurple = this.sceneActive;
+			    	this.charactersPurple = this.charactersActive;
+			    	this.textPurple = this.textActive;
 			        console.log("Old--purple")
 			        break;
 			    case "orange":
-			    	_this.sceneOrange = _this.sceneActive;
-			    	_this.charactersOrange = _this.charactersActive;
+			    	this.sceneOrange = this.sceneActive;
+			    	this.charactersOrange = this.charactersActive;
+			    	this.textOrange = this.textActive;
 			        console.log("Old--orange")
 			        break;
 			    case "green":
-			    	_this.sceneGreen = _this.sceneActive;
-			    	_this.charactersGreen = _this.charactersActive;
+			    	this.sceneGreen = this.sceneActive;
+			    	this.charactersGreen = this.charactersActive;
+			    	this.textGreen = this.textActive;
 			        console.log("Old--green")
 			        break;
 			}
@@ -58,73 +79,89 @@ var app = {
 			// preparing new scene
 			switch(scene) {
 			    case "purple":
-			    	_this.sceneActive = _this.scenePurple;
-			    	_this.charactersActive = _this.charactersPurple;
+			    	this.sceneActive = this.scenePurple;
+			    	this.charactersActive = this.charactersPurple;
+			    	this.textActive = this.textPurple;
 			        console.log("New--purple")
 			        break;
 			    case "orange":
-			    	_this.sceneActive = _this.sceneOrange;
-			    	_this.charactersActive = _this.charactersOrange;
+			    	this.sceneActive = this.sceneOrange;
+			    	this.charactersActive = this.charactersOrange;
+			    	this.textActive = this.textOrange;
 			        console.log("New--orange")
 			        break;
 			    case "green":
-			    	_this.sceneActive = _this.sceneGreen;
-			    	_this.charactersActive = _this.charactersGreen;
+			    	this.sceneActive = this.sceneGreen;
+			    	this.charactersActive = this.charactersGreen;
+			    	this.textActive = this.textGreen;
 			        console.log("New--green")
 			        break;
 			}
 
-			console.log("--characters:"+_this.charactersActive);
+			this.sceneName = scene;
 
-			_this.sceneName = scene;
-
-			// reset del stage
-			_this.sceneActive = new fabric.Canvas('ui-canvas');
-
-			fabric.Image.fromURL('images/bgs/'+_this.sceneName+'.jpg', function(img) {
+			fabric.Image.fromURL('images/bgs/'+this.sceneName+'.jpg', function(img) {
 				img.set({
 					selectable: false
 				});
-				_this.sceneActive.add(img);
+				_this.canvas.add(img);
 			});
 
 			// load characters
 			for(character in this.charactersActive){
-				fabric.Image.fromURL('images/characters/'+_this.charactersActive[character]+'.png', function(img) {
+
+				fabric.Image.fromURL('images/characters/'+this.charactersActive[character].name+'.png', function(img) {
+
 				  img.scale(0.5).set({
-				    left: 0,
-				    top: 0,
-				    angle: 0,
+				    left: _this.charactersActive[character].left,
+				    top: _this.charactersActive[character].top,
+				    angle: _this.charactersActive[character].angle,
 				    selectable: true
 				  });
-				  _this.sceneActive.add(img).setActiveObject(img);
-				});
-			}
 
+				  _this.canvas.add(img).setActiveObject(img);
+
+				});
+
+				if( character==this.charactersActive.length-1 ){
+					this.addText(this.textActive);
+				}
+			}
 		},
 
-		reset: function(){
+		addText: function(text){
 
 			var _this = this;
+			console.log("dentroText:"+text)
 
-			_this.sceneActive = new fabric.Canvas('ui-canvas');
-
-			_this.charactersPurple = [];
-			_this.charactersOrange = [];
-			_this.charactersGreen = [];
-
-			fabric.Image.fromURL('images/bgs/'+_this.sceneName+'.jpg', function(img) {
-				img.set({
-					selectable: false
-				});
-				_this.sceneActive.add(img);
+			// rectangle text
+			var rect = new fabric.Rect({
+				left: 0,
+				top: _this.canvas.height-50,
+				fill: 'black',
+				width: _this.canvas.width,
+				height: _this.canvas.height,
+				selectable: false
 			});
+
+			this.canvas.add(rect);
+
+			var message = new fabric.Text(text, {
+				left: 10,
+				top: _this.canvas.height-40,
+				width: _this.canvas.width-40,
+				fill: 'white',
+  				fontFamily: 'Helvetica',
+  				fontSize: 12,
+  				selectable: false
+			});
+
+			this.canvas.add(message);
 		},
 
 		init: function(){
 
 			var _this = this;
-			_this.reset();
 
 			$( ".menu-characters>li" ).draggable({ 
 				revert: true
@@ -138,13 +175,37 @@ var app = {
 	    		drop: function(event, ui) {
 
 	    			if(ui.draggable.data('character')!=undefined){
-	    				_this.addCharacter(ui.draggable.data('character'));
+	    				_this.addCharacter(ui.draggable.data('character'), ui.position.left, ui.position.top);
 	    			}else{
+	    				console.log("___cambio escena")
 	    				_this.changeScene(ui.draggable.data('scene'));
 	    			}
 
+	    			console.log(ui);
+
 	  			}
 			});
+
+			// init bg purple
+			fabric.Image.fromURL('images/bgs/'+this.sceneName+'.jpg', function(img) {
+				img.set({
+					selectable: false
+				});
+				_this.canvas.add(img);
+			});
+
+			this.canvas.on({
+				'selection:modified': function() {
+      				console.log("modified");
+    			}
+			});
+
+			// textarea
+			$(".add-text").click(function() {
+				_this.textActive = $('#message').val();
+				_this.addText(_this.textActive);
+			});
+
 		}
 
 	},
