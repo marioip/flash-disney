@@ -1,9 +1,13 @@
 # Project directory layout
 
 src/
+	images/
+	js/
 	sass/
 	index.jade
 
 dist/
 	css/
+	images/
+	js/
 	index.html

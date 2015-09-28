@@ -48,7 +48,6 @@ var app = {
 		},
 
 		deleteCharacter: function(pos){
-			console.log("delete:"+pos);
 			delete this.charactersActive[pos];
 		},
 
@@ -237,8 +236,6 @@ var app = {
 
 			$( "#ui-canvas" ).droppable({
 	    		drop: function(event, ui) {
-
-	    			console.log(ui.draggable);
 
 	    			if(ui.draggable.data('character')!=undefined){
 	    				_this.addCharacter(ui.draggable.data('character'), ui.position.left, ui.position.top, ui.draggable.context.clientWidth, ui.draggable.context.clientHeight);
