@@ -32,8 +32,8 @@ var app = {
 			var _character = {
 				pos: this.charactersActive.length,
 				name: character,
-				left: Math.abs(left)-_width,
-				top: Math.abs(top)-_height,
+				left: 660-_width*3,
+				top: 300-_height*1.3,
 				width: _width,
 				height: _height,
 				angle: 0
@@ -52,6 +52,37 @@ var app = {
 			delete this.charactersActive[pos];
 		},
 
+		addText: function(text){
+
+			var _this = this;
+			this.textActive = text;
+
+			// rectangle text
+			var rect = new fabric.Rect({
+				left: 0,
+				top: _this.canvas.height-50,
+				fill: 'black',
+				width: _this.canvas.width,
+				height: _this.canvas.height,
+				selectable: false
+			});
+
+			this.canvas.add(rect);
+
+			var message = new fabric.Text(text, {
+				left: 10,
+				top: _this.canvas.height-40,
+				width: _this.canvas.width-40,
+				fill: 'white',
+  				fontFamily: 'Helvetica',
+  				fontSize: 12,
+  				selectable: false
+			});
+
+			this.canvas.add(message);
+			this.canvas.renderAll();
+		},
+
 		printCharacter: function(imgSet){
 
 			var _this = this;
@@ -66,7 +97,7 @@ var app = {
 						var y = options.e.pageY;
 						if(x<260 || x>920 || y<850 || y>1150) _this.deleteCharacter(_imgSet.pos);
 					});
-				    // _this.canvas.renderAll();
+				    _this.canvas.renderAll();
 			}, imgSet);
 
 		},
@@ -80,6 +111,7 @@ var app = {
 					selectable: false
 				});
 				_this.canvas.add(img);
+				_this.canvas.renderAll();
 			});
 
 		},
@@ -187,40 +219,13 @@ var app = {
 
 		},
 
-		addText: function(text){
 
-			var _this = this;
-			this.textActive = text;
-
-			// rectangle text
-			var rect = new fabric.Rect({
-				left: 0,
-				top: _this.canvas.height-50,
-				fill: 'black',
-				width: _this.canvas.width,
-				height: _this.canvas.height,
-				selectable: false
-			});
-
-			this.canvas.add(rect);
-
-			var message = new fabric.Text(text, {
-				left: 10,
-				top: _this.canvas.height-40,
-				width: _this.canvas.width-40,
-				fill: 'white',
-  				fontFamily: 'Helvetica',
-  				fontSize: 12,
-  				selectable: false
-			});
-
-			this.canvas.add(message);
-			this.canvas.renderAll();
-		},
 
 		init: function(){
 
 			var _this = this;
+
+			$( "#characters" ).scrollLeft( 10 );
 
 			$( ".menu-characters>li" ).draggable({ 
 				revert: true
@@ -230,7 +235,7 @@ var app = {
 				revert: true
 			});
 
-			$("#ui-canvas").droppable({
+			$( "#ui-canvas" ).droppable({
 	    		drop: function(event, ui) {
 
 	    			console.log(ui.draggable);

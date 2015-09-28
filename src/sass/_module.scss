@@ -67,7 +67,7 @@
 	background-image: url("../images/sprite.png");
 	@include sprite($canvasbg);
 	.preview{
-		margin-top: 15px;
+		margin-top: 20px;
 		padding-left: 65px;
 		text-align: left;
 		a{
@@ -188,14 +188,23 @@
 	@include sprite($stage-scenes-blue-btn);
 }
 
-#stage-bottom{;
+#stage-bottom{
 	padding: 0;
+	margin-top: -30px;
 	margin-bottom: 95px;
 }
 
+#characters{
+	margin-left: 150px;
+	width:280px;
+	height:130px;
+	overflow:auto;
+}
+
 .menu-characters{
-	margin: 0px;
-	padding: 0 0 0 150px;
+	width: 500px;
+	margin-top: 20px;
+	padding: 0;
 	li{
 		float: left;
 	}
@@ -220,6 +229,21 @@
 .menu-characters__captainJack{
 	background-image: url("../images/sprite.png");
 	@include sprite($characters-btn-CaptainJack);
+}
+
+.menu-characters__mike{
+	background-image: url("../images/sprite.png");
+	@include sprite($characters-btn-Mike);
+}
+
+.menu-characters__helen{
+	background-image: url("../images/sprite.png");
+	@include sprite($characters-btn-Helen);
+}
+
+.menu-characters__woody{
+	background-image: url("../images/sprite.png");
+	@include sprite($characters-btn-Woody);
 }
 
 // CANVAS
@@ -262,7 +286,7 @@
 
 #text-input{
 	text-align: left;
-	padding: 27px 0 0 55px;
+	padding: 55px 0 0 100px;
 	textarea{
 		resize: none;
 		font-size: 0.8em;
