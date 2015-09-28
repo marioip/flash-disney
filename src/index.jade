@@ -39,7 +39,16 @@ html(lang='en')
 						p Set the scene, the characters and tell us what's happening to earn loads of swapits plus a chance to win a <strong>Nintendo 3DS!</strong> Drag and drop on the canvas below and make up to 4 scenes for your story! Each scene will give you even more swapits!
 
 			// MAIN
-			div#stage.row
+			div#stage
+
+				div#stage-menu.col-12
+					ul.menu-stage
+						li.menu-stage__1
+							a(href='')
+						li.menu-stage__2
+							a(href='')
+						li.menu-stage__3
+							a(href='')
 
 				div#stage-top.col-12
 					div#scenes.col-2
@@ -60,7 +69,8 @@ html(lang='en')
 
 					div#text-input.col-6
 						textarea(id="message") Only the best story will win the Grand Prize, so think about your story before you submit your scenes!
-						span.add-text
+						div.add-text
+							a(href='')
 
 				div.col-12
 					div.col-8

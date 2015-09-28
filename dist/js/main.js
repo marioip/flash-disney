@@ -21,7 +21,7 @@ var app = {
 		textOrange: "",
 		textGreen: "",
 
-		addCharacter: function(character, left, top){
+		addCharacter: function(character, left, top, width, height){
 
 			var _this = this;
 			var _left = left;
@@ -32,6 +32,8 @@ var app = {
 				name: character,
 				left: Math.abs(_left),
 				top: Math.abs(_top)-100,
+				width: width,
+				height: height,
 				angle: 0
 			};
 
@@ -39,9 +41,11 @@ var app = {
 
 			fabric.Image.fromURL('images/characters/'+_character.name+'.png', function(img) {
 
-				  img.scale(0.5).set({
-				    left: _character.left,
-				    top: _character.top,
+				  img.set({
+				    left: _character.left-_character.width,
+				    top: _character.top-_character.height,
+				    width: _character.width*2,
+				    height: _character.height*2,
 				    angle: _character.angle,
 				    selectable: true
 				  });
@@ -54,25 +58,27 @@ var app = {
 
 			var _this = this;
 
+			console.log(this.charactersActive);
+
 			// saving old scene
 			switch(this.sceneName) {
 			    case "purple":
 			    	this.scenePurple = this.sceneActive;
 			    	this.charactersPurple = this.charactersActive;
 			    	this.textPurple = this.textActive;
-			        console.log("Old--purple")
+			        console.log("Old--purple");
 			        break;
 			    case "orange":
 			    	this.sceneOrange = this.sceneActive;
 			    	this.charactersOrange = this.charactersActive;
 			    	this.textOrange = this.textActive;
-			        console.log("Old--orange")
+			        console.log("Old--orange");
 			        break;
 			    case "green":
 			    	this.sceneGreen = this.sceneActive;
 			    	this.charactersGreen = this.charactersActive;
 			    	this.textGreen = this.textActive;
-			        console.log("Old--green")
+			        console.log("Old--green");
 			        break;
 			}
 
@@ -82,19 +88,19 @@ var app = {
 			    	this.sceneActive = this.scenePurple;
 			    	this.charactersActive = this.charactersPurple;
 			    	this.textActive = this.textPurple;
-			        console.log("New--purple")
+			        console.log("New--purple");
 			        break;
 			    case "orange":
 			    	this.sceneActive = this.sceneOrange;
 			    	this.charactersActive = this.charactersOrange;
 			    	this.textActive = this.textOrange;
-			        console.log("New--orange")
+			        console.log("New--orange");
 			        break;
 			    case "green":
 			    	this.sceneActive = this.sceneGreen;
 			    	this.charactersActive = this.charactersGreen;
 			    	this.textActive = this.textGreen;
-			        console.log("New--green")
+			        console.log("New--green");
 			        break;
 			}
 
@@ -110,18 +116,32 @@ var app = {
 			// load characters
 			for(character in this.charactersActive){
 
-				fabric.Image.fromURL('images/characters/'+this.charactersActive[character].name+'.png', function(img) {
+				console.log(_this.charactersActive[character].width);
+				console.log(_this.charactersActive[character].height);
 
-				  img.scale(0.5).set({
-				    left: _this.charactersActive[character].left,
-				    top: _this.charactersActive[character].top,
-				    angle: _this.charactersActive[character].angle,
-				    selectable: true
-				  });
+				var imgSet = {
+					arrayPos: character,
+					left:_this.charactersActive[character].left,
+					top: _this.charactersActive[character].top-100,
+					width: _this.charactersActive[character].width*2,
+					height: _this.charactersActive[character].height*2,
+					angle: _this.charactersActive[character].angle, selectable: true,
+					'mouse:up': function() {
+						console.log("mouse up");
+					}
+				};
 
-				  _this.canvas.add(img).setActiveObject(img);
-
-				});
+				fabric.Image.fromURL('images/characters/'+_this.charactersActive[character].name+'.png', function(img) {
+					_this.canvas.add(img);
+					// detect if it is out
+					img.on('mouseup', function(options) {
+						console.log(options.e);
+						var x = options.e.pageX;
+						var y = options.e.pageY;
+						if(x<260 || x>920 || y<850 || y>1150) console.log("fuera");
+					});
+				    _this.canvas.renderAll();
+				}, imgSet);
 
 				if( character==this.charactersActive.length-1 ){
 					this.addText(this.textActive);
@@ -132,7 +152,6 @@ var app = {
 		addText: function(text){
 
 			var _this = this;
-			console.log("dentroText:"+text)
 
 			// rectangle text
 			var rect = new fabric.Rect({
@@ -174,14 +193,13 @@ var app = {
 			$("#ui-canvas").droppable({
 	    		drop: function(event, ui) {
 
+	    			console.log(ui.draggable);
+
 	    			if(ui.draggable.data('character')!=undefined){
-	    				_this.addCharacter(ui.draggable.data('character'), ui.position.left, ui.position.top);
+	    				_this.addCharacter(ui.draggable.data('character'), ui.position.left, ui.position.top, ui.draggable.context.clientWidth, ui.draggable.context.clientHeight);
 	    			}else{
-	    				console.log("___cambio escena")
 	    				_this.changeScene(ui.draggable.data('scene'));
 	    			}
-
-	    			console.log(ui);
 
 	  			}
 			});
@@ -194,14 +212,8 @@ var app = {
 				_this.canvas.add(img);
 			});
 
-			this.canvas.on({
-				'selection:modified': function() {
-      				console.log("modified");
-    			}
-			});
-
 			// textarea
-			$(".add-text").click(function() {
+			$("a.add-text").click(function() {
 				_this.textActive = $('#message').val();
 				_this.addText(_this.textActive);
 			});
