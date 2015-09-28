@@ -100,10 +100,24 @@ var app = {
 
 		printCanvas: function(){
 
-			console.log(this.scenes);
+			var html = "";
+			var previewInit = false;
 
 			for(scene in this.scenes){
-				console.log(this.scenes[scene].preview);
+
+				if(this.scenes[scene].preview=="") previewInit = true;
+
+				if(this.sceneName == this.scenes[scene].name) this.scenes[scene].preview = this.canvas.toDataURL();
+				html = html + "<img src='"+this.scenes[scene].preview+"'>";
+
+			}
+
+			// pop-up preview
+			if(previewInit){
+				window.open('./images/previewInit.html');
+			}else{
+				var w = window.open();
+				$(w.document.body).html(html);
 			}
 
 		},
@@ -230,13 +244,7 @@ var app = {
 	  			}
 			});
 
-			// init bg purple
-			fabric.Image.fromURL('images/bgs/'+this.sceneName+'.jpg', function(img) {
-				img.set({
-					selectable: false
-				});
-				_this.canvas.add(img);
-			});
+			this.printScene();
 
 		}
 
