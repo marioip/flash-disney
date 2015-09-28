@@ -6,6 +6,11 @@ var app = {
 
 		canvas: new fabric.Canvas('ui-canvas'),
 
+		sceneActive: {},
+		scenePurple: {},
+		sceneOrange: {},
+		sceneGreen: {},
+
 		charactersActive: [],
 		charactersPurple: [],
 		charactersOrange: [],
@@ -16,64 +21,90 @@ var app = {
 		textOrange: "",
 		textGreen: "",
 
-		scenes :[
-			{"name": "purple", "preview": ""},
-			{"name": "orange", "preview": ""},
-			{"name": "green", "preview": ""}
-		],
-
 		addCharacter: function(character, left, top, width, height){
 
-			// initial scale 0.5
-			var _width = width*2;
-			var _height = height*2;
+			var _this = this;
+			var _left = left;
+			var _top = top;
 
 			// objeto character
 			var _character = {
-				pos: this.charactersActive.length,
 				name: character,
-				left: Math.abs(left)-_width,
-				top: Math.abs(top)-_height,
-				width: _width,
-				height: _height,
+				left: Math.abs(_left),
+				top: Math.abs(_top)-100,
+				width: width,
+				height: height,
 				angle: 0
 			};
 
 			this.charactersActive.push(_character);
 
-			this.printCharacter(_character);
+			fabric.Image.fromURL('images/characters/'+_character.name+'.png', function(img) {
 
-			if(this.textActive!="") this.addText(this.textActive);
+				  img.set({
+				    left: _character.left-_character.width,
+				    top: _character.top-_character.height,
+				    width: _character.width*2,
+				    height: _character.height*2,
+				    angle: _character.angle,
+				    selectable: true
+				  });
+				  _this.canvas.add(img).setActiveObject(img);
+			});
 
 		},
 
-		deleteCharacter: function(pos){
-			console.log("delete:"+pos);
-			delete this.charactersActive[pos];
-		},
-
-		printCharacter: function(imgSet){
+		changeScene: function(scene){
 
 			var _this = this;
-			var _imgSet = imgSet;
 
-			fabric.Image.fromURL('images/characters/'+imgSet.name+'.png', function(img) {
-					_this.canvas.add(img);
-					// detect if it is out
-					img.on('mouseup', function(options) {
-						console.log(options.e);
-						var x = options.e.pageX;
-						var y = options.e.pageY;
-						if(x<260 || x>920 || y<850 || y>1150) _this.deleteCharacter(_imgSet.pos);
-					});
-				    // _this.canvas.renderAll();
-			}, imgSet);
+			console.log(this.charactersActive);
 
-		},
+			// saving old scene
+			switch(this.sceneName) {
+			    case "purple":
+			    	this.scenePurple = this.sceneActive;
+			    	this.charactersPurple = this.charactersActive;
+			    	this.textPurple = this.textActive;
+			        console.log("Old--purple");
+			        break;
+			    case "orange":
+			    	this.sceneOrange = this.sceneActive;
+			    	this.charactersOrange = this.charactersActive;
+			    	this.textOrange = this.textActive;
+			        console.log("Old--orange");
+			        break;
+			    case "green":
+			    	this.sceneGreen = this.sceneActive;
+			    	this.charactersGreen = this.charactersActive;
+			    	this.textGreen = this.textActive;
+			        console.log("Old--green");
+			        break;
+			}
 
-		printBg: function(bg){
+			// preparing new scene
+			switch(scene) {
+			    case "purple":
+			    	this.sceneActive = this.scenePurple;
+			    	this.charactersActive = this.charactersPurple;
+			    	this.textActive = this.textPurple;
+			        console.log("New--purple");
+			        break;
+			    case "orange":
+			    	this.sceneActive = this.sceneOrange;
+			    	this.charactersActive = this.charactersOrange;
+			    	this.textActive = this.textOrange;
+			        console.log("New--orange");
+			        break;
+			    case "green":
+			    	this.sceneActive = this.sceneGreen;
+			    	this.charactersActive = this.charactersGreen;
+			    	this.textActive = this.textGreen;
+			        console.log("New--green");
+			        break;
+			}
 
-			var _this = this;
+			this.sceneName = scene;
 
 			fabric.Image.fromURL('images/bgs/'+this.sceneName+'.jpg', function(img) {
 				img.set({
@@ -82,101 +113,41 @@ var app = {
 				_this.canvas.add(img);
 			});
 
-		},
-
-		printScene: function(){
-
-			this.printBg(this.sceneActive);
-
+			// load characters
 			for(character in this.charactersActive){
 
-				this.printCharacter(this.charactersActive[character]);
+				console.log(_this.charactersActive[character].width);
+				console.log(_this.charactersActive[character].height);
 
+				var imgSet = {
+					left:_this.charactersActive[character].left,
+					top: _this.charactersActive[character].top-100,
+					width: _this.charactersActive[character].width*2,
+					height: _this.charactersActive[character].height*2,
+					angle: _this.charactersActive[character].angle, selectable: true,
+				};
+
+				fabric.Image.fromURL('images/characters/'+_this.charactersActive[character].name+'.png', function(img) {
+					_this.canvas.add(img);
+					// detect if it is out
+					img.on('mouseup', function(options) {
+						console.log(options.e);
+						var x = options.e.pageX;
+						var y = options.e.pageY;
+						if(x<260 || x>920 || y<850 || y>1150) console.log("fuera");
+					});
+				    _this.canvas.renderAll();
+				}, imgSet);
+
+				if( character==this.charactersActive.length-1 ){
+					this.addText(this.textActive);
+				}
 			}
-
-			this.addText(this.textActive);
-
-		},
-
-		printCanvas: function(){
-
-			console.log(this.scenes);
-
-			for(scene in this.scenes){
-				console.log(this.scenes[scene].preview);
-			}
-
-		},
-
-		changeScene: function(scene){
-
-			console.log("SCENE:"+scene);
-
-			var _this = this;
-
-			// saving old scene
-			switch(this.sceneName) {
-			    case "purple":
-			    	this.scenePurple = this.sceneActive;
-			    	this.charactersPurple = this.charactersActive;
-			    	this.textPurple = this.textActive;
-			    	this.scenes[0].preview = this.canvas.toDataURL();
-			    	$(".menu-stage__1").removeClass("menu-stage__1--active");
-			        console.log("Old--purple");
-			        break;
-			    case "orange":
-			    	this.sceneOrange = this.sceneActive;
-			    	this.charactersOrange = this.charactersActive;
-			    	this.textOrange = this.textActive;
-			    	this.scenes[1].preview = this.canvas.toDataURL();
-			    	$(".menu-stage__2").removeClass("menu-stage__2--active");
-			        console.log("Old--orange");
-			        break;
-			    case "green":
-			    	this.sceneGreen = this.sceneActive;
-			    	this.charactersGreen = this.charactersActive;
-			    	this.textGreen = this.textActive;
-			    	this.scenes[2].preview = this.canvas.toDataURL();
-			    	$(".menu-stage__3").removeClass("menu-stage__3--active");
-			        console.log("Old--green");
-			        break;
-			}
-
-			// preparing new scene
-			switch(scene) {
-			    case "purple":
-			    	this.charactersActive = this.charactersPurple;
-			    	this.textActive = this.textPurple;
-			    	this.sceneName = "purple";
-			    	$(".menu-stage__1").addClass( "menu-stage__1--active" );
-			        console.log("New--purple");
-			        break;
-			    case "orange":
-			    	this.charactersActive = this.charactersOrange;
-			    	this.textActive = this.textOrange;
-			    	this.sceneName = "orange";
-			    	$(".menu-stage__2").addClass( "menu-stage__2--active" );
-			        console.log("New--orange");
-			        break;
-			    case "green":
-
-			    	this.charactersActive = this.charactersGreen;
-			    	this.textActive = this.textGreen;
-			    	this.sceneName = "green";
-			    	$(".menu-stage__3").addClass( "menu-stage__3--active" );
-			        console.log("New--green");
-			        break;
-			}
-
-			// print scene
-			this.printScene();
-
 		},
 
 		addText: function(text){
 
 			var _this = this;
-			this.textActive = text;
 
 			// rectangle text
 			var rect = new fabric.Rect({
@@ -201,7 +172,6 @@ var app = {
 			});
 
 			this.canvas.add(message);
-			this.canvas.renderAll();
 		},
 
 		init: function(){
@@ -236,6 +206,12 @@ var app = {
 					selectable: false
 				});
 				_this.canvas.add(img);
+			});
+
+			// textarea
+			$("a.add-text").click(function() {
+				_this.textActive = $('#message').val();
+				_this.addText(_this.textActive);
 			});
 
 		}

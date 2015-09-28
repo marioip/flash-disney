@@ -569,7 +569,7 @@ figure {
   width: 948px;
   height: 838px; }
   #stage .preview {
-    margin-top: 22px;
+    margin-top: 15px;
     padding-left: 65px;
     text-align: left; }
     #stage .preview a {
@@ -578,7 +578,8 @@ figure {
       font-size: 1.6em;
       letter-spacing: 0.01em; }
       #stage .preview a:hover {
-        color: #f36b2b; }
+        color: #f36b2b;
+        cursor: pointer; }
 
 #stage-menu {
   margin: 100px 0 0 0;
@@ -603,12 +604,22 @@ figure {
   width: 116px;
   height: 42px; }
   .menu-stage__1 a:hover {
-    background-position: 0px -360px;
+    background-position: 0px -318px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
     width: 116px;
-    height: 42px; }
+    height: 42px;
+    cursor: pointer; }
+
+.menu-stage__1--active a {
+  background-image: url("../images/sprite.png");
+  background-position: 0px -234px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  width: 116px;
+  height: 42px; }
 
 .menu-stage__2 a {
   background-image: url("../images/sprite.png");
@@ -624,7 +635,17 @@ figure {
     overflow: hidden;
     display: block;
     width: 117px;
-    height: 42px; }
+    height: 42px;
+    cursor: pointer; }
+
+.menu-stage__2--active a {
+  background-image: url("../images/sprite.png");
+  background-position: 0px -486px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  width: 117px;
+  height: 42px; }
 
 .menu-stage__3 a {
   background-image: url("../images/sprite.png");
@@ -640,7 +661,17 @@ figure {
     overflow: hidden;
     display: block;
     width: 117px;
-    height: 42px; }
+    height: 42px;
+    cursor: pointer; }
+
+.menu-stage__3--active a {
+  background-image: url("../images/sprite.png");
+  background-position: 0px -402px;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: block;
+  width: 117px;
+  height: 42px; }
 
 #stage-top {
   padding: 0;
@@ -798,12 +829,12 @@ figure {
     font-size: 0.8em;
     border: none;
     width: 330px;
-    height: 70px;
+    height: 50px;
     background-color: transparent; }
 
-.add-text a {
+.add-text {
   float: right;
-  margin: -25px 70px 0 0;
+  margin: -10px 70px 0 0;
   background-image: url("../images/sprite.png");
   background-position: 0px -156px;
   background-repeat: no-repeat;
@@ -811,10 +842,11 @@ figure {
   display: block;
   width: 114px;
   height: 39px; }
-  .add-text a:hover {
+  .add-text:hover {
     background-position: 0px -195px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
     width: 114px;
-    height: 39px; }
+    height: 39px;
+    cursor: pointer; }

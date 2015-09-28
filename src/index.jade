@@ -43,12 +43,12 @@ html(lang='en')
 
 				div#stage-menu.col-12
 					ul.menu-stage
-						li.menu-stage__1
-							a(href='')
+						li.menu-stage__1.menu-stage__1--active
+							a(onclick='app.stage.changeScene("purple");')
 						li.menu-stage__2
-							a(href='')
+							a(onclick='app.stage.changeScene("orange");')
 						li.menu-stage__3
-							a(href='')
+							a(onclick='app.stage.changeScene("green");')
 
 				div#stage-top.col-12
 					div#scenes.col-2
@@ -69,14 +69,13 @@ html(lang='en')
 
 					div#text-input.col-6
 						textarea(id="message") Only the best story will win the Grand Prize, so think about your story before you submit your scenes!
-						div.add-text
-							a(href='')
+						a.add-text(onclick='app.stage.addText(document.getElementById("message").value);')
 
 				div.col-12
 					div.col-8
 						div.p-3
 							p Click <strong>"preview"</strong> to make sure you're happy with it and if you are, submit it for entry into the competition and you could be in with a chance of winning a <strong>Nintendo 3DS, Disney Infinity Starter Pack</strong> and <strong>5,000 swapits!</strong>
 					div.col-4.preview
-						a(href='' alt='Preview' title='Preview') PREVIEW
+						a(onclick='app.stage.printCanvas();') PREVIEW
 
 		script(type="text/javascript", src="js/main.js")

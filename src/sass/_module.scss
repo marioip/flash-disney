@@ -67,7 +67,7 @@
 	background-image: url("../images/sprite.png");
 	@include sprite($canvasbg);
 	.preview{
-		margin-top: 22px;
+		margin-top: 15px;
 		padding-left: 65px;
 		text-align: left;
 		a{
@@ -77,6 +77,7 @@
 			letter-spacing: 0.01em;
 			&:hover{
 				color: $orange;
+				cursor: pointer;
 			}
 		}
 	}
@@ -103,8 +104,14 @@
 	background-image: url("../images/sprite.png");
 	@include sprite($btn-scene1);
 	&:hover{
-		@include sprite($btn-scene1_hover);
+		@include sprite($btn-scene1);
+		cursor: pointer;
 	}
+}
+
+.menu-stage__1--active a{
+	background-image: url("../images/sprite.png");
+	@include sprite($btn-scene1_selected);
 }
 
 .menu-stage__2 a{
@@ -112,7 +119,13 @@
 	@include sprite($btn-scene2);
 	&:hover{
 		@include sprite($btn-scene2_hover);
+		cursor: pointer;
 	}
+}
+
+.menu-stage__2--active a{
+	background-image: url("../images/sprite.png");
+	@include sprite($btn-scene2_selected);
 }
 
 .menu-stage__3 a{
@@ -120,7 +133,13 @@
 	@include sprite($btn-scene3);
 	&:hover{
 		@include sprite($btn-scene3_hover);
+		cursor: pointer;
 	}
+}
+
+.menu-stage__3--active a{
+	background-image: url("../images/sprite.png");
+	@include sprite($btn-scene3_selected);
 }
 
 #stage-top{
@@ -243,23 +262,24 @@
 
 #text-input{
 	text-align: left;
-	padding: 27px 0 0 55px; 
+	padding: 27px 0 0 55px;
 	textarea{
 		resize: none;
 		font-size: 0.8em;
 		border: none;
 		width: 330px;
-		height: 70px;
+		height: 50px;
 		background-color: transparent;
 	}
 }
 
-.add-text a{
+.add-text{
 	float: right;
-	margin: -25px 70px 0 0; 
+	margin: -10px 70px 0 0; 
 	background-image: url("../images/sprite.png");
 	@include sprite($btn-addText);
 	&:hover{
 		@include sprite($btn-addText_hover);
+		cursor: pointer;
 	}
 }
