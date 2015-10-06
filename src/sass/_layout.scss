@@ -43,9 +43,12 @@
 	
 }
 
-/* Larger than phablet (also point when grid becomes active) */
+/* Larger than phablet */
 @media (min-width: 550px) {
-
+	.container{
+		width: 100%;
+		margin-left: 5%;
+	}
 }
 
 /* Larger than tablet */

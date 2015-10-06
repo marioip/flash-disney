@@ -460,7 +460,12 @@ figure {
   text-align: center; }
 
 /* Larger than mobile */
-/* Larger than phablet (also point when grid becomes active) */
+/* Larger than phablet */
+@media (min-width: 550px) {
+  .container {
+    width: 100%;
+    margin-left: 5%; } }
+
 /* Larger than tablet */
 @media (min-width: 750px) {
   .container {
@@ -477,10 +482,8 @@ figure {
 
 /* Larger than Desktop HD */
 #allPage {
-  width: 100%;
-  text-align: center;
   background-image: url("../images/sprite.png");
-  background-position: 0px -3858px;
+  background-position: 0px -4029px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -562,14 +565,14 @@ figure {
 #stage {
   margin-top: 0px;
   background-image: url("../images/sprite.png");
-  background-position: 0px -3020px;
+  background-position: 0px -3191px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 948px;
   height: 838px; }
   #stage .preview {
-    margin-top: 20px;
+    margin-top: 25px;
     padding-left: 65px;
     text-align: left; }
     #stage .preview a {
@@ -597,14 +600,14 @@ figure {
 
 .menu-stage__1 a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -318px;
+  background-position: 0px -234px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 116px;
   height: 42px; }
   .menu-stage__1 a:hover {
-    background-position: 0px -318px;
+    background-position: 0px -234px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
@@ -614,7 +617,7 @@ figure {
 
 .menu-stage__1--active a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -402px;
+  background-position: 0px -444px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -623,14 +626,14 @@ figure {
 
 .menu-stage__2 a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -234px;
+  background-position: 0px -486px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 117px;
   height: 42px; }
   .menu-stage__2 a:hover {
-    background-position: 0px -486px;
+    background-position: 0px -528px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
@@ -640,7 +643,7 @@ figure {
 
 .menu-stage__2--active a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -528px;
+  background-position: 0px -360px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -649,14 +652,14 @@ figure {
 
 .menu-stage__3 a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -276px;
+  background-position: 0px -570px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 117px;
   height: 42px; }
   .menu-stage__3 a:hover {
-    background-position: 0px -570px;
+    background-position: 0px -318px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;
@@ -666,7 +669,7 @@ figure {
 
 .menu-stage__3--active a {
   background-image: url("../images/sprite.png");
-  background-position: 0px -444px;
+  background-position: 0px -276px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -697,7 +700,7 @@ figure {
 
 .menu-scenes__purple {
   background-image: url("../images/sprite.png");
-  background-position: 0px -612px;
+  background-position: 0px -819px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -706,7 +709,7 @@ figure {
 
 .menu-scenes__orange {
   background-image: url("../images/sprite.png");
-  background-position: 0px -819px;
+  background-position: 0px -750px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -715,7 +718,7 @@ figure {
 
 .menu-scenes__green {
   background-image: url("../images/sprite.png");
-  background-position: 0px -750px;
+  background-position: 0px -681px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -724,7 +727,7 @@ figure {
 
 .menu-scenes__blue {
   background-image: url("../images/sprite.png");
-  background-position: 0px -681px;
+  background-position: 0px -612px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -755,7 +758,7 @@ figure {
 
 .menu-characters__sully {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1240px;
+  background-position: 0px -1499px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -764,7 +767,7 @@ figure {
 
 .menu-characters__buzz {
   background-image: url("../images/sprite.png");
-  background-position: 0px -888px;
+  background-position: 0px -1411px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -773,7 +776,7 @@ figure {
 
 .menu-characters__captainJack {
   background-image: url("../images/sprite.png");
-  background-position: 0px -976px;
+  background-position: 0px -1235px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -782,7 +785,7 @@ figure {
 
 .menu-characters__mike {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1152px;
+  background-position: 0px -1323px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -791,7 +794,7 @@ figure {
 
 .menu-characters__helen {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1064px;
+  background-position: 0px -1059px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -800,7 +803,7 @@ figure {
 
 .menu-characters__woody {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1328px;
+  background-position: 0px -1147px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -810,7 +813,7 @@ figure {
 #canvas {
   margin-left: 20px;
   background-image: url("../images/sprite.png");
-  background-position: 0px -2684px;
+  background-position: 0px -2855px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -822,7 +825,7 @@ figure {
 
 .bg-scene__purple {
   background-image: url("../images/sprite.png");
-  background-position: 0px -2367px;
+  background-position: 0px -1587px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -831,7 +834,7 @@ figure {
 
 .bg-scene__orange {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1733px;
+  background-position: 0px -1904px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -840,7 +843,7 @@ figure {
 
 .bg-scene__green {
   background-image: url("../images/sprite.png");
-  background-position: 0px -2050px;
+  background-position: 0px -2221px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -849,7 +852,7 @@ figure {
 
 .bg-scene__blue {
   background-image: url("../images/sprite.png");
-  background-position: 0px -1416px;
+  background-position: 0px -2538px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
@@ -871,14 +874,14 @@ figure {
   float: right;
   margin: -10px 70px 0 0;
   background-image: url("../images/sprite.png");
-  background-position: 0px -156px;
+  background-position: 0px -195px;
   background-repeat: no-repeat;
   overflow: hidden;
   display: block;
   width: 114px;
   height: 39px; }
   .add-text:hover {
-    background-position: 0px -195px;
+    background-position: 0px -156px;
     background-repeat: no-repeat;
     overflow: hidden;
     display: block;

@@ -1,11 +1,12 @@
-//HEADER
+
 
 #allPage{
-	width: 100%;
-	text-align: center;
+
 	background-image: url("../images/sprite.png");
 	@include sprite($bg-home);
 }
+
+//HEADER
 
 .menu{
 	margin: 0px;
@@ -67,7 +68,7 @@
 	background-image: url("../images/sprite.png");
 	@include sprite($canvasbg);
 	.preview{
-		margin-top: 20px;
+		margin-top: 25px;
 		padding-left: 65px;
 		text-align: left;
 		a{

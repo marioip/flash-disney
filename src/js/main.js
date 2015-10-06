@@ -132,24 +132,16 @@ var app = {
 		printCanvas: function(){
 
 			var html = "";
-			var previewInit = false;
 
 			for(scene in this.scenes){
-
-				if(this.scenes[scene].preview=="") previewInit = true;
 
 				if(this.sceneName == this.scenes[scene].name) this.scenes[scene].preview = this.canvas.toDataURL();
 				html = html + "<img src='"+this.scenes[scene].preview+"'>";
 
 			}
 
-			// pop-up preview
-			if(previewInit){
-				window.open('./images/previewInit.html');
-			}else{
-				var w = window.open();
-				$(w.document.body).html(html);
-			}
+			var w = window.open();
+			$(w.document.body).html(html);
 
 		},
 
