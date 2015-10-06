@@ -1,7 +1,7 @@
 About
 =====
 
-This is a interactive website challenge for SuperAwesome created by @marioip ( Mario Iglesias )
+This is a interactive minisite created by @marioip ( Mario Iglesias )
 
 This is a code development with the last technologies and old best practices. Using html5, sass, canvas, sprites, base64...
 
