@@ -3,7 +3,7 @@ About
 
 This is a interactive minisite created by @marioip ( Mario Iglesias )
 
-This is a code development with the last technologies and old best practices. Using html5, sass, canvas, sprites, base64...
+This is a code development with the last technologies and best practices. Using html5, sass, canvas, sprites, base64...
 
 ## Technologies used
 
